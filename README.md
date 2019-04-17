@@ -36,3 +36,34 @@ We install the dev dependency `npm install -D nodemon`. Nodemon will watch the s
 ```
 
 Use `npm run dev` for reload on save.
+
+## Setting up routes
+
+We use the get methode such as `app.get(root,CallbackFunction)`
+
+## Input Validation
+
+Server requests need to be validated, and done using the node package joi. `npm i joi`. For each api call, we create a schema :
+
+```js
+  const schema = {
+      name: Joi.string().min(3).required(),
+      subject: Joi.string().min(4).optional()
+  }
+```
+
+Then call the validation function `const result = Joi.validate(req.body, schema)`. This result object will return a JSON object :
+
+```json
+{
+  error: null,
+  value: { name: 'new course', subject: 'Arts' },
+  then: [Function: then],
+  catch: [Function: catch]
+}
+```
+
+For no errors, `error: null`. For errors present, value will be null. We can use `result.error` for prompt in client side.
+
+## Updating using PUT request
+
