@@ -1,30 +1,16 @@
 const express = require('express');
 const Joi = require('joi');
+const logger = require('./middleware/logger');
+const courses = require('./Data');
 
 //Init express
 const app = express();
 app.use(express.json()); // Allows the body to parse json requests
 // express.json() returns a peice of middleware
 
+//Init Middleware
+app.use(logger);
 
-const courses = [
-    {
-        id: 1,
-        name: "Awsaf",
-        subject: "Physics"
-    },
-    {
-        id: 2,
-        name: "Other",
-        subject: "Chemistry"
-    },
-    {
-        id: 3,
-        name: "Other Name",
-        subject: "Math"
-    }
-
-];
 
 app.get('/' , function(req, res){
     res.send('<h1>Hello World</h1>');
