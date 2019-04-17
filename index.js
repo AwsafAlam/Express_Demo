@@ -4,7 +4,8 @@ const express = require('express');
 const app = express();
 
 app.get('/' , function(req, res){
-    res.send('Hello World!');
+    // res.send('<h1>Hello World</h1>');
+    res.sendFile(path.join(__dirname, 'public','index.html'));
 });
 
 const PORT = process.env.PORT || 5000;
