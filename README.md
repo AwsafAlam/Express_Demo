@@ -1,5 +1,7 @@
 # Express_Demo
 
+For further reference use [Express Docs](http://expressjs.com)
+
 ---
 
 ## Starting a basic server
@@ -67,3 +69,22 @@ For no errors, `error: null`. For errors present, value will be null. We can use
 
 ## Updating using PUT request
 
+- Look up a course
+- If not existing, return 404
+- Validate
+- If invalid, return 400 - Bad request
+- Update course
+- Return the updated course
+
+## Middleware
+
+We use middlewares for modularization. Some good libraries are :
+
+- Moment for `Date` formatting
+- Use `uuid` for generating hash user ids.
+
+Usually we modularize all routes in a routes folder, and set all CRUD operations in specific files. eg. `/api/members` api can be declared inside a `member.js` folder inside routes.
+
+## JSON Web Tokens (JWT)
+
+For full stack apps, using an Express servers, we use JWT to authenticate with a React front-end requesting to the Api.

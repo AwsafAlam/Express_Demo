@@ -7,6 +7,7 @@ const courses = require('./Data');
 const app = express();
 app.use(express.json()); // Allows the body to parse json requests
 // express.json() returns a peice of middleware
+app.use(express.urlencoded({extended: false}));
 
 //Init Middleware
 app.use(logger);
