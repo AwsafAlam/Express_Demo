@@ -85,6 +85,56 @@ We use middlewares for modularization. Some good libraries are :
 
 Usually we modularize all routes in a routes folder, and set all CRUD operations in specific files. eg. `/api/members` api can be declared inside a `member.js` folder inside routes.
 
+Routes have to be exportes from the routes folder, and can be used in the `index.js`.
+
 ## JSON Web Tokens (JWT)
 
 For full stack apps, using an Express servers, we use JWT to authenticate with a React front-end requesting to the Api.
+
+## MongoDB
+
+MongoDb uses a Data-format called BSON
+
+- Database
+- Collections
+- Documents
+
+Documents are in the form of JSON objects. They are Schema-less. We can have one collection where we store different knids of data. Hence it is very much flexible. We can add / remove data as we please from collections, and simply modify the query structures.
+
+### BSON Data Format
+
+BSON stands for Binary JSON. It has the same format as JSON, but is binary encoded to make working with data more efficient, and works with all languages.
+
+```json
+{
+  name: 'Max;,
+  age: 29,
+  address:{
+      city: 'Munich
+    },
+  hobbies: [
+    { name: 'Cooking' },
+    { name: 'Sports' }
+  ]
+}
+```
+
+A JSON attribute is referred to as a document. We can also have embedded documents e.g, address has an embeded document. We keep related data in the same document. this makes data retrieval much more easier. We do not need complicated joins, which can cause performance loss.
+
+We can also have multiple embeded documents such as an array of objects.
+
+- `NoSQL` : Fewer or no relations
+- `Relational Database` : Data needs to be merged manually.
+  
+## MongoDB Atlas
+
+It is a database running in the cloud to which we can connect to. Create a cluster, and account at [MongoDb Cloud](https://cloud.mongodb.com). We can configure clusters in here, and connect using node applications.
+
+There are 3 ways to use Mongo:
+
+- Mongo Shell
+- Node JS
+- Compass GUI
+
+## Mongo Shell
+
