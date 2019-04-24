@@ -1,23 +1,15 @@
-const express = require('express');
-const Joi = require('joi');
-const logger = require('./middleware/logger');
-const courses = require('./Data');
+// const mongoose = require('mongoose');
 
-//Init express
-const app = express();
-app.use(express.json()); // Allows the body to parse json requests || express.json() returns a peice of middleware
-app.use(express.urlencoded({extended: false}));
+// mongoose.connect('mongodb://localhost/playground')
+//         .then(() => console.log('Connected to MongoDB...'))
+//         .catch(err => console.error('Could not connect to Mongo',err))
 
-//Init Middleware
-app.use(logger);
-
-
-app.get('/' , function(req, res){
-    res.send('<h1>Hello World</h1>');
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://Awsaf:kolpoBD@15@clusterdemo0-1pdvg.mongodb.net/test?retryWrites=true";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  console.log('Could not connect',err);
+  client.close();
 });
-
-
-
-const PORT = process.env.PORT || 5000;
-// Listen on a port
-app.listen(PORT , () => console.log(`Server started on port ${PORT}`));

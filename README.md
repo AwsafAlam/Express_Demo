@@ -138,3 +138,8 @@ There are 3 ways to use Mongo:
 
 ## Mongo Shell
 
+Use the command and run it in the shell to access the cluster in the cloud.
+
+## Mongoose
+
+Install as an `npm` package `npm i --save mongoose`
